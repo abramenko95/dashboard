@@ -41,25 +41,29 @@ export default {
   methods: {
     updateChartSize() {
       console.warn (this.$refs.wrapper)
-      this.chartWidth = this.$refs.wrapper.clientWidth - 20;
-      this.chartHeight = this.$refs.wrapper.clientHeight - 20;
+      this.chartWidth = this.$refs.content.clientWidth - 20;
+      this.chartHeight = this.$refs.content.clientHeight - 20;
     },
     // renderSvg() {
     //   console.log(this.$refs.wrapper)
     // }
   },
   mounted() {
-    this.updateChartSize();
+    setTimeout(this.updateChartSize, 1000);
   }
 }
 </script>
 
 <template>
-  <div class="item" ref="wrapper">
-    <the-content-chart-bar 
-      :width="chartWidth"
-      :height="chartHeight"
-    />
+  <div class="item gpn-block">
+    <div class="gpn-block__header"><div class="label"><span class="text">Заголовок</span></div></div>
+    <div class="gpn-block__content" ref="content">
+      <the-content-chart-bar 
+        :width="chartWidth"
+        :height="chartHeight"
+      />
+
+    </div>
   </div>
 </template>
 
@@ -67,9 +71,17 @@ export default {
   .item {
     width: 100%;
     height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #272A38;
+    background-color: #1C1F2B;
   }
+  .gpn-block__header {
+    background-color: #272A38;
+    .label .text {
+    color: white;
 
+    }
+  }
+  .gpn-block__content {
+    border: none;
+    background-color: #1C1F2B;
+  }
 </style>

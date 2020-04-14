@@ -54,7 +54,6 @@ export default {
   .content__bar-chart {
     width: 100%;
     height: 100%;
-    background-color: #272A38;
   }
 
 </style>
